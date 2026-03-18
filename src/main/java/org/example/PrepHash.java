@@ -5,23 +5,22 @@ import java.util.Scanner;
 
 public class PrepHash {
     public static void main(String [] args){
-        String s;
-        HashMap<Character,Integer> map = new HashMap<>();
+       int[] arr = {1,23,45,66,78,99,33,66};
+       HashMap<Integer,Integer> map = new HashMap<>();
+       for (int a : arr){
+           if(map.containsKey(a)){
+               map.put(a,map.get(a)+1);
+           }else{
+               map.put(a,1);
+           }
 
-        System.out.println("Enter the string : ");
-        Scanner sc = new Scanner(System.in);
-        s= sc.nextLine();
-        for(char c : s.toCharArray()){
-            if (map.containsKey(c)){
-                map.put(c,map.get(c)+1);
-            }else{
-                map.put(c,1);
-            }
-        }
+       }
 
-        for(char key : map.keySet()){
-            System.out.println(key +"->"+map.get(key));
-        }
+       for (int a : arr){
+           if (map.get(a)>1){
+               System.out.println(a+ "->This is Duplicate in Array !!");
+           }
+       }
     }
 
 }
