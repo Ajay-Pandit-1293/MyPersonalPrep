@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class FirstNonRepeat {
     public static void main(String [] args){
         String s;
+
         int count=0;
         HashMap<Character,Integer> map = new HashMap<>();
 
@@ -26,8 +27,12 @@ public class FirstNonRepeat {
         for(char k : s.toCharArray()){
             if(map.get(k)==1){
                 System.out.println(map.get(k)+"--"+k);
+                count++;
                 return;
             }
+        }
+        if (count<1){
+            System.out.println("There's no non repeated character !!");
         }
     }
 }
