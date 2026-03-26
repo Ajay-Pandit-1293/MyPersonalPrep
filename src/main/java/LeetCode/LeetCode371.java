@@ -17,11 +17,28 @@ public class LeetCode371 {
 
     }
 
+//    public static int getSum(int a, int b) {
+//        String s = " ";
+//        String ss = " ";
+//        s=s.repeat(a);
+//        ss=ss.repeat(b);
+//        String sss = String.format("%s%s", s, ss);
+//        return sss.length();
+//    }
+
     public static int getSum(int a, int b) {
-        String s = " ";
-        String ss = " ";
-        s=s.repeat(a);
-        ss=ss.repeat(b);
+
+        if (a < 0 && b < 0) return -getSum(-a, -b);
+        if (a < 0) return getSum(b, a);
+        if (b < 0) {
+            String s = " ".repeat(a);
+            String ss = " ".repeat(-b);
+            return s.length() - ss.length(); // a - |b|
+        }
+
+
+        String s  = " ".repeat(a);
+        String ss = " ".repeat(b);
         String sss = String.format("%s%s", s, ss);
         return sss.length();
     }
