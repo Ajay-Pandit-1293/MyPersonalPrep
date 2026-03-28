@@ -15,34 +15,25 @@ public class LeetCode125 {
 
 class Solution2 {
     public boolean isPalindrome(String s) {
-        s=s.toLowerCase();
-        String temp = s;
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0;i<s.length();i++){
-            if (s.charAt(i)<'a' || s.charAt(i)>'z'){
-                continue;
-            }else{
-                sb.append(s.charAt(i));
+            s = s.toLowerCase();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < s.length(); i++) {
+                char ch = s.charAt(i);
+                if (Character.isLetterOrDigit(ch)) {
+                    sb.append(ch);
+                }
             }
+            String str = sb.toString();
+            char[] arr = str.toCharArray();
+            int left = 0;
+            int right = arr.length - 1;
+            while (left < right) {
+                char temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp;
+                left++;
+                right--;
+            }
+            return str.equals(new String(arr));
         }
-
-        String str = sb.toString();
-        String temp1=str;
-        char [] arr = str.toCharArray();
-        int left=0;
-        int right=str.length()-1;
-        while(left<right){
-            char ch = arr[left];
-            arr[left]=arr[right];
-            arr[right]=ch;
-            left++;
-            right--;
-        }
-        String ori = new String(arr);
-
-        if (ori.equals(temp1)){
-            return true;
-        }
-        return false;
     }
-}
