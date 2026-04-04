@@ -10,6 +10,8 @@ public class LeetCode69 {
         int k=mySqrt(n);
         System.out.println("So the sqrt is : "+k);
     }
+
+    // THis solution has bugs , comment it and use the below for the correct one.
     public static int mySqrt(int x) {
         int counter=0;
         for(int i =1;i<Integer.MAX_VALUE;i++){
@@ -39,7 +41,7 @@ public class LeetCode69 {
 }
 
 
-//
+//This is the correct solution
 //public static int mySqrt(int x) {
 //    if (x == 0) return 0;
 //
