@@ -19,6 +19,7 @@ public class PermuteOfABCD {
         if(current.size()==n){
 // will complete it soon
         }
-        return
+        List<List<Character>> result = new ArrayList<>();
+        return result;
     }
 }
